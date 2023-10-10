@@ -1,0 +1,254 @@
+/*Style file created by Brecken Merrill
+=======================================
+00: CSS variables
+01: Color
+02: Typography
+*/
+
+/*00: CSS variables*/
+
+:root{
+    --page-color:hsl(187, 37%, 74%);
+    --body-color:hsl(192, 55%, 69%);
+    --sidebar-color:hsl(192, 42%, 63%);
+    --footbar-color:hsl(192, 29%, 54%);
+    --tab-color:hsl(193, 27%, 51%);
+    --footbar-height: 15vh;
+    --page-position: 85%;
+    --page-width: 30%;
+    --tab-gap:2vw;
+    --tab-width: 10vw;
+    --tab-height: 5vh;
+}
+
+/*01: Color*/
+
+body{
+    background-color:var(--body-color);
+    padding:5px;
+}
+aside.sidebar{
+    background-color: var(--sidebar-color);
+}
+
+#zen-intro{
+    background-color: var(--page-color);
+}
+
+#zen-supporting{
+    background-color: var(--page-color);
+}
+
+/*02:Topography*/
+
+@font-face{
+    font-family: 'myfont';
+    src:url(../fonts/chunkfive.woff)
+}
+
+header h1{
+    font-family:'myfont';
+    font-weight:400;
+    font-size:1.25em;
+    letter-spacing:1px;
+    line-height:1em;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration-color: black;
+}
+
+/*O3:Layout*/
+/*For Test*/
+
+div.explanation, div.requirements, div.benefits, div.participation{
+    position: fixed;
+    top: var(--page-position);
+    width: var(--page-width);
+    padding-left: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background-image: url(../img/newspaper3.jpg);
+    height:80vh;
+    transition: ease-in-out;
+}
+
+div.explanation h3, div.requirements h3, div.benefits h3, div.participation h3{
+    margin-top: -15%;
+    width:var(--tab-width);
+    height: var(--tab-height);
+    background-color: var(--tab-color);
+    border-radius:10% 50%;
+    text-align:center;
+    transition: background-color 2s ease-in-out;
+}
+
+div.explanation h3:hover, div.requirements h3:hover, div.benefits h3:hover, div.participation h3:hover {
+    background-color: rgb(148, 19, 148);
+}
+
+div.explanation{
+    left: 0%;
+}
+
+div.requirements{
+    left: 12vw;
+}
+
+div.benefits{
+    left: 24vw;
+}
+
+div.participation{
+    left: 36vw;
+}
+
+aside.sidebar{
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 20%;
+    height: 60%;
+}
+
+div.extra2{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: var(--footbar-height);
+    background-color: var(--footbar-color);
+}
+
+/* footer -- try it outside of the clas */
+
+/* introduction -in the middle */
+section.intro{
+    position: fixed;
+    bottom: 5%;
+    left: 30%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper3.jpg);
+    transform:rotate(-15deg) translate(4px);
+}
+div.extra1{
+    position: fixed;
+    bottom: 5%;
+    left: 35%;
+    width: 30%;
+    height: 80%;
+    padding: 2%;
+    background-image: url(../img/newspaper1.jpg);
+    transform:rotate(15deg) translate(60px);
+    z-index:-1;
+}
+header{
+    position:relative;
+    display:inline-block;
+    background-color:hsl(192, 92%, 85%);
+    transform:rotate(15deg);
+    left:175%;
+    top:20%;
+
+}
+
+footer{
+    position: fixed;
+    bottom:0;
+    left: 40%;
+    width:30%;
+    height:5%;
+    z-index: 1;
+}
+
+/* other decorations */
+div.explanation:active{
+    top:15vh;
+}
+
+div.requirements:active{
+    top:15vh;
+}
+div.benefits:active{
+    top:15vh;
+}
+div.participation:active{
+    top:15vh;
+}
+a:hover{
+    font-size: 1.23em;
+    text-indent: -100px;
+    background-color: pink;
+
+}
+p::first-letter{
+    font-size:2em;
+    font-style:italic;
+}
+/*
+p:nth-child(2n){
+    background-color: cadetblue;
+}
+p:nth-child(2n+1){
+    background-color: blueviolet;
+}
+*/
+
+/* More Practice on Transitions*/
+section.intro h3 ~p{
+    opacity:1;
+    transition: all 3s ease-in-out;
+}
+section.intro h3:hover ~p{
+    opacity: 0;
+    transform: scale(0.2);
+    rotate: 360deg;
+}
+
+/*06: Animation*/
+footer{
+    animation:10s ease-in-out 2s alternate infinite moveback;
+}
+@keyframes moveback{
+    from{transform: translate(-500px,0px);}
+    30%{transform:translate(-300px,0px);}
+    50%{transform:translate(0px,0px);}
+    70%{transform:translate(300px,0px);}
+    90%{transform: translate(500px,0px);}
+}
+
+h2{
+    background-image: linear-gradient(cyan, rgb(229, 192, 255), pink);
+    animation: 4s infinite running changecolor;
+}
+@keyframes changecolor{
+    from{background-image:linear-gradient(pink, rgb(229, 192, 255), cyan);}
+    to{background-image: linear-gradient(cyan, rgb(229, 192, 255), pink);}
+}
+
+/*07: Fancy Features*/
+div.extra1{
+    border-image:liner-gradient(purple, blueviolet) 10 / 15px round;
+}
+aside.sidebar{
+    font-size:0.8em;
+    clip-path: polygon(0 0, 0 70%, 50% 100%, 100% 70%, 100% 0);
+}
+div#design-archives{
+    display:none;
+}
+aside.sidebar h3{
+    display:none;
+}
+aside.sidebar ul li{
+    list-style:none;
+}
+/*
+body{
+    clip-path:circle(70% at 50vw 50vh)
+}
+*/
